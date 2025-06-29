@@ -1,0 +1,83 @@
+server:
+  port: 10013
+#  servlet:
+#    context-path: /oc
+#spring:
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
+#  redis:
+#    host: 192.168.3.192
+#    port: 6379
+#    database: 1
+#    password: 123456
+#    expiredTime: 86400sms
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://192.168.3.192:3306/order_center?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&allowMultiQueries=true&tinyInt1isBit=false
+#    username: dev
+#    password: root123
+#    initial-size: 1
+#    min-idle: 1
+#    max-active: 10
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    max-wait: 60000
+#    pool-prepared-statements: true
+#    max-pool-prepared-statement-per-connection-size: 20
+#    time-between-eviction-runs-millis: 60000
+#    min-evictable-idle-time-millis: 300000
+#    test-while-idle: true
+#    test-on-borrow: false
+#    test-on-return: false
+#    stat-view-servlet:
+#      enabled: true
+#      url-pattern: /druid/*
+#      #login-username: admin
+#      #login-password: admin
+#    filter:
+#      stat:
+#        log-slow-sql: true
+#        slow-sql-millis: 1000
+#        merge-sql: true
+#      wall:
+#        config:
+#          multi-statement-allow: true
+#---
+#rocketmq:
+#  name-server: 192.168.3.193:9876
+#  producer:
+#    group: GID-trade
+#    sendMessageTimeout: 300000
+#order:
+#  timeout:
+#    topic: order-timeout-topic
+#clearing:
+#  rocketmq:
+#    topic: clearing-topic
+#confirmReceipt:
+#  day: 7
+#stock:
+#  goods:
+#    maxPerPersonMap:
+#      99999: 99999
+#    maxPerPersonPerDayMap:
+#      99999: 99999
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      logic-delete-field: isDeleted #实体名称
+#      logic-delete-value: 1 # 已经删除标志值
+#      logic-not-delete-value: 0 #未删除标志值
+#
+#ribbon:
+#  ReadTimeout: 10000
+#  ConnectTimeout: 5000
+spring:
+  redis:
+    host: 192.168.3.192
+    database: 1
+    port: 6379
+    password: 123456
+    servlet:
+      multipart:
+        max-file-size: 10MB

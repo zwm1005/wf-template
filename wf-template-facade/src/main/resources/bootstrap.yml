@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: wf-template-facade
+  profiles:
+    active: @spring.profiles.active@
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    nacos:
+      config:
+        file-extension: yml
+        enabled: true
+      server-addr: @spring.cloud.nacos.discovery.server-addr@
+      discovery:
+        enabled: true
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+    timeLimiter:
+      timeOutMills: 5000 #默认配置
+  client:
+    config:
+      default:
+        logger-level: basic
