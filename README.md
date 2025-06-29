@@ -55,6 +55,40 @@ wf-starter-transaction: 基于本地事务表的分布式事务解决方案。
 
 ---
 
+## 🧩 wf-template 与 wf-starter 组件协同使用说明
+
+本项目（`wf-template`）为业务微服务项目的脚手架模板，需搭配 [`wf-starter`](https://github.com/zwm1005/wf-starter) 基础组件库联合使用。  
+**`wf-template` 主要负责微服务的分层结构和开发规范，而实际的通用能力（如数据库、缓存、注册中心、消息队列、分布式锁、限流、日志等），均由 `wf-starter` 提供并托管为一系列 Spring Boot Starter 组件。**
+
+### 依赖关系说明
+
+- `wf-template` 仅包含项目结构和规范，不直接包含具体的基础能力实现。
+- 你应在基于 `wf-template` 生成的新微服务项目的 `pom.xml` 中**按需引入 `wf-starter` 的各类 Starter 组件**，以获得所需的数据库、缓存、分布式锁等功能复用。
+- 例如：
+  ```xml
+  <dependency>
+      <groupId>fun.werfamily.starter</groupId>
+      <artifactId>wf-starter-database</artifactId>
+      <version>最新版本号</version>
+  </dependency>
+  <dependency>
+      <groupId>fun.werfamily.starter</groupId>
+      <artifactId>wf-starter-cache</artifactId>
+      <version>最新版本号</version>
+  </dependency>
+  <!-- 更多 wf-starter 能力可按需引入 -->
+  ```
+
+### 推荐使用流程
+
+1. **使用 `wf-template` 或 `gen_microservice.py` 快速生成新微服务项目骨架**
+2. **在新项目的 `pom.xml` 中引入所需的 `wf-starter` 组件（如数据库、缓存、MQ 等），实现统一能力复用**
+3. **二者需保持版本兼容，建议同步升级，避免依赖冲突**
+
+> **注意：** 若 `wf-starter` 组件未引入，相关能力不可用，启动时可能出现类缺失等问题。
+
+---
+
 ## 🚀 快速开始
 
 ### 1. 利用脚手架 Python 脚本快速生成新微服务项目
