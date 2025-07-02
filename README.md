@@ -33,7 +33,7 @@ xxx-model：领域模型定义，可对外开放。
 
 ---
 
-## 🧩 基础架构模块
+## 🧩 wf-starter基础架构模块
 
 ```markdown
 wf-core-base: 微服务通讯协议体定义，如 result 对象等。
